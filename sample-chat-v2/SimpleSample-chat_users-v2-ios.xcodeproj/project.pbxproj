@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		92742F8B1715FB8A00F70706 /* DialogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F8A1715FB8A00F70706 /* DialogListViewController.m */; };
+		92742F8E1715FB9C00F70706 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F8D1715FB9C00F70706 /* RoomListViewController.m */; };
+		92742F911715FBAE00F70706 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F901715FBAE00F70706 /* ContactListViewController.m */; };
+		92742F941715FC4500F70706 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92742F921715FC4500F70706 /* DataModel.xcdatamodeld */; };
+		92742F9A1715FC7200F70706 /* GSCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F971715FC7200F70706 /* GSCoreDataController.m */; };
+		92742F9B1715FC7200F70706 /* GSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F991715FC7200F70706 /* GSFileManager.m */; };
 		92B532C7170E04E2003D7FD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B532C6170E04E2003D7FD1 /* UIKit.framework */; };
 		92B532C9170E04E2003D7FD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B532C8170E04E2003D7FD1 /* Foundation.framework */; };
 		92B532CB170E04E2003D7FD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B532CA170E04E2003D7FD1 /* CoreGraphics.framework */; };
@@ -38,6 +44,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		92742F891715FB8A00F70706 /* DialogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogListViewController.h; sourceTree = "<group>"; };
+		92742F8A1715FB8A00F70706 /* DialogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogListViewController.m; sourceTree = "<group>"; };
+		92742F8C1715FB9C00F70706 /* RoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListViewController.h; sourceTree = "<group>"; };
+		92742F8D1715FB9C00F70706 /* RoomListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListViewController.m; sourceTree = "<group>"; };
+		92742F8F1715FBAE00F70706 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
+		92742F901715FBAE00F70706 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
+		92742F931715FC4500F70706 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		92742F961715FC7200F70706 /* GSCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCoreDataController.h; sourceTree = "<group>"; };
+		92742F971715FC7200F70706 /* GSCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCoreDataController.m; sourceTree = "<group>"; };
+		92742F981715FC7200F70706 /* GSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSFileManager.h; sourceTree = "<group>"; };
+		92742F991715FC7200F70706 /* GSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSFileManager.m; sourceTree = "<group>"; };
 		92B532C3170E04E2003D7FD1 /* SimpleSample-chat_users-v2-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SimpleSample-chat_users-v2-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B532C6170E04E2003D7FD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92B532C8170E04E2003D7FD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -104,6 +121,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92742F951715FC7200F70706 /* CoreDataController */ = {
+			isa = PBXGroup;
+			children = (
+				92742F961715FC7200F70706 /* GSCoreDataController.h */,
+				92742F971715FC7200F70706 /* GSCoreDataController.m */,
+				92742F981715FC7200F70706 /* GSFileManager.h */,
+				92742F991715FC7200F70706 /* GSFileManager.m */,
+			);
+			name = CoreDataController;
+			path = ../../../demoCoreDataController/CoreDataController;
+			sourceTree = "<group>";
+		};
 		92B532BA170E04E2003D7FD1 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +182,8 @@
 				92B532DE170E04E2003D7FD1 /* MainStoryboard.storyboard */,
 				92B53304170E0CC0003D7FD1 /* DataManager.h */,
 				92B53305170E0CC0003D7FD1 /* DataManager.m */,
+				92742F951715FC7200F70706 /* CoreDataController */,
+				92742F921715FC4500F70706 /* DataModel.xcdatamodeld */,
 				92B532F4170E056B003D7FD1 /* ViewControllers */,
 				92B532CD170E04E2003D7FD1 /* Supporting Files */,
 			);
@@ -180,6 +211,12 @@
 				92B532FC170E092C003D7FD1 /* TabBarViewController.m */,
 				92B53301170E0C99003D7FD1 /* AuthViewController.h */,
 				92B53302170E0C99003D7FD1 /* AuthViewController.m */,
+				92742F891715FB8A00F70706 /* DialogListViewController.h */,
+				92742F8A1715FB8A00F70706 /* DialogListViewController.m */,
+				92742F8C1715FB9C00F70706 /* RoomListViewController.h */,
+				92742F8D1715FB9C00F70706 /* RoomListViewController.m */,
+				92742F8F1715FBAE00F70706 /* ContactListViewController.h */,
+				92742F901715FBAE00F70706 /* ContactListViewController.m */,
 				92B53325170E1FD2003D7FD1 /* ProfileViewController.h */,
 				92B53326170E1FD2003D7FD1 /* ProfileViewController.m */,
 			);
@@ -258,6 +295,12 @@
 				92B53303170E0C99003D7FD1 /* AuthViewController.m in Sources */,
 				92B53306170E0CC0003D7FD1 /* DataManager.m in Sources */,
 				92B53327170E1FD2003D7FD1 /* ProfileViewController.m in Sources */,
+				92742F8B1715FB8A00F70706 /* DialogListViewController.m in Sources */,
+				92742F8E1715FB9C00F70706 /* RoomListViewController.m in Sources */,
+				92742F911715FBAE00F70706 /* ContactListViewController.m in Sources */,
+				92742F941715FC4500F70706 /* DataModel.xcdatamodeld in Sources */,
+				92742F9A1715FC7200F70706 /* GSCoreDataController.m in Sources */,
+				92742F9B1715FC7200F70706 /* GSFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +446,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		92742F921715FC4500F70706 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92742F931715FC4500F70706 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 92742F931715FC4500F70706 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 92B532BB170E04E2003D7FD1 /* Project object */;
 }

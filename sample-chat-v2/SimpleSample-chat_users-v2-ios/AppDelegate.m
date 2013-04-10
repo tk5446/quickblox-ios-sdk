@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "GSCoreDataController.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,8 @@
 #ifndef DEBUG
     [QBSettings useProductionEnvironmentForPushNotifications:YES];
 #endif
+    
+    [GSCoreDataController configureWithDataModelName:@"DataModel"];
     return YES;
 }
 							

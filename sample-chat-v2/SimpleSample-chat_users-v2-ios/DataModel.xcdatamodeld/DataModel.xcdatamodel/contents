@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="11E53" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Contact" syncable="YES">
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Dialog" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DirectMessage" inverseName="dialog" inverseEntity="DirectMessage" syncable="YES"/>
+        <relationship name="opponent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" syncable="YES"/>
+    </entity>
+    <entity name="DirectMessage" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="dialog" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Dialog" inverseName="messages" inverseEntity="Dialog" syncable="YES"/>
+    </entity>
+    <entity name="Room" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RoomMessage" inverseName="room" inverseEntity="RoomMessage" syncable="YES"/>
+        <relationship name="oppoents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" syncable="YES"/>
+    </entity>
+    <entity name="RoomMessage" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="room" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="messages" inverseEntity="Room" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Dialog" positionX="-4950" positionY="-1692" width="128" height="90"/>
+        <element name="DirectMessage" positionX="-5121" positionY="-1593" width="128" height="90"/>
+        <element name="Contact" positionX="-4754" positionY="-1755" width="128" height="75"/>
+        <element name="Room" positionX="-4572" positionY="-1710" width="128" height="105"/>
+        <element name="RoomMessage" positionX="-4347" positionY="-1602" width="128" height="90"/>
+    </elements>
+</model>
