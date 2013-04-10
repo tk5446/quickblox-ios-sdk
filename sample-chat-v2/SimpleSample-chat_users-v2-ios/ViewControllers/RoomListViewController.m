@@ -161,6 +161,7 @@
             
         case NSFetchedResultsChangeUpdate:
             [self configureCell:[tableView cellForRowAtIndexPath:indexPath] atIndexPath:indexPath];
+            [self.tableView reloadData];
             break;
             
         case NSFetchedResultsChangeMove:

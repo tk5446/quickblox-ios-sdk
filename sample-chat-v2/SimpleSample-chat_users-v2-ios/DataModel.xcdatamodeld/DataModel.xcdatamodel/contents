@@ -14,11 +14,11 @@
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="dialog" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Dialog" inverseName="messages" inverseEntity="Dialog" syncable="YES"/>
     </entity>
-    <entity name="Room" syncable="YES">
+    <entity name="Room" representedClassName="Room" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="RoomMessage" inverseName="room" inverseEntity="RoomMessage" syncable="YES"/>
-        <relationship name="oppoents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" syncable="YES"/>
+        <relationship name="opponents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contact" syncable="YES"/>
     </entity>
     <entity name="RoomMessage" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
@@ -26,9 +26,9 @@
         <relationship name="room" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="messages" inverseEntity="Room" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Contact" positionX="-4754" positionY="-1755" width="128" height="75"/>
         <element name="Dialog" positionX="-4950" positionY="-1692" width="128" height="90"/>
         <element name="DirectMessage" positionX="-5121" positionY="-1593" width="128" height="90"/>
-        <element name="Contact" positionX="-4754" positionY="-1755" width="128" height="75"/>
         <element name="Room" positionX="-4572" positionY="-1710" width="128" height="105"/>
         <element name="RoomMessage" positionX="-4347" positionY="-1602" width="128" height="90"/>
     </elements>

@@ -8,6 +8,7 @@
 
 #import "DataManager.h"
 #import "GSCoreDataController.h"
+#import "Room+Ext.h"
 
 @implementation DataManager
 
@@ -54,12 +55,19 @@
 
 - (void)chatDidReceiveListOfRooms:(NSArray *)rooms {
     self.rooms = rooms;
-
+    __block Room *lastRoomObject;
+    
     [rooms enumerateObjectsUsingBlock:^(QBChatRoom *room, NSUInteger idx, BOOL *stop) {
-        NSManagedObject *roomObject = [GSCoreDataController createEntityWithName:@"Room"];
+        Room *roomObject = (Room *)[GSCoreDataController createEntityWithName:@"Room"];
         [roomObject setValue:[NSDate date] forKey:@"date"];
         [roomObject setValue:room.name forKey:@"name"];
+        lastRoomObject = roomObject;
     }];
+    
+    
+    NSManagedObject *roomMessageObject = [GSCoreDataController createEntityWithName:@"RoomMessage"];
+    [roomMessageObject setValue:@"test1" forKey:@"text"];
+    [lastRoomObject performSelector:@selector(addMessagesObject:) withObject:roomMessageObject afterDelay:2];
 }
 
 @end

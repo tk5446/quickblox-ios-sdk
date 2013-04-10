@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		921F8CB317161A1F00F1CB12 /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 921F8CB217161A1F00F1CB12 /* Room.m */; };
+		921F8CB617161B1400F1CB12 /* Room+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 921F8CB517161B1400F1CB12 /* Room+Ext.m */; };
 		92742F8B1715FB8A00F70706 /* DialogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F8A1715FB8A00F70706 /* DialogListViewController.m */; };
 		92742F8E1715FB9C00F70706 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F8D1715FB9C00F70706 /* RoomListViewController.m */; };
 		92742F911715FBAE00F70706 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F901715FBAE00F70706 /* ContactListViewController.m */; };
@@ -44,6 +46,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		921F8CB117161A1F00F1CB12 /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		921F8CB217161A1F00F1CB12 /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		921F8CB417161B1400F1CB12 /* Room+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Room+Ext.h"; sourceTree = "<group>"; };
+		921F8CB517161B1400F1CB12 /* Room+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Room+Ext.m"; sourceTree = "<group>"; };
 		92742F891715FB8A00F70706 /* DialogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogListViewController.h; sourceTree = "<group>"; };
 		92742F8A1715FB8A00F70706 /* DialogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogListViewController.m; sourceTree = "<group>"; };
 		92742F8C1715FB9C00F70706 /* RoomListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListViewController.h; sourceTree = "<group>"; };
@@ -184,6 +190,10 @@
 				92B53305170E0CC0003D7FD1 /* DataManager.m */,
 				92742F951715FC7200F70706 /* CoreDataController */,
 				92742F921715FC4500F70706 /* DataModel.xcdatamodeld */,
+				921F8CB117161A1F00F1CB12 /* Room.h */,
+				921F8CB217161A1F00F1CB12 /* Room.m */,
+				921F8CB417161B1400F1CB12 /* Room+Ext.h */,
+				921F8CB517161B1400F1CB12 /* Room+Ext.m */,
 				92B532F4170E056B003D7FD1 /* ViewControllers */,
 				92B532CD170E04E2003D7FD1 /* Supporting Files */,
 			);
@@ -301,6 +311,8 @@
 				92742F941715FC4500F70706 /* DataModel.xcdatamodeld in Sources */,
 				92742F9A1715FC7200F70706 /* GSCoreDataController.m in Sources */,
 				92742F9B1715FC7200F70706 /* GSFileManager.m in Sources */,
+				921F8CB317161A1F00F1CB12 /* Room.m in Sources */,
+				921F8CB617161B1400F1CB12 /* Room+Ext.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +397,7 @@
 		92B532F2170E04E2003D7FD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Taras Filatov (6AVH4TA956)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -399,6 +412,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "61070765-F7A1-4048-BB1E-5CD876A4090E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -406,6 +420,7 @@
 		92B532F3170E04E2003D7FD1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Taras Filatov (6AVH4TA956)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -420,6 +435,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "61070765-F7A1-4048-BB1E-5CD876A4090E";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
