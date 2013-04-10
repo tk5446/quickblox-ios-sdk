@@ -40,7 +40,7 @@
 
 - (void)completedWithResult:(Result *)result {
     if ([result isKindOfClass:[QBUUserLogOutResult class]]) {
-        [[DataManager manager] setIsAuth:NO];
+        [[DataManager manager] setCurrentUser:nil];
         [((TabBarViewController *)self.tabBarController) checkAuth];
     }
 }

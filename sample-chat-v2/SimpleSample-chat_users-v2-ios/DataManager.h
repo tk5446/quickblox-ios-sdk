@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataManager : NSObject<QBActionStatusDelegate>
+@interface DataManager : NSObject<QBActionStatusDelegate, QBChatDelegate>
 
 + (id)manager;
 
-@property(nonatomic, assign) BOOL isAuth;
+@property (nonatomic, strong) QBUUser *currentUser;
+@property (nonatomic, strong) NSArray *rooms;
 
 @end

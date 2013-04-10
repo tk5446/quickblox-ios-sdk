@@ -7,6 +7,7 @@
 //
 
 #import "DataManager.h"
+#import "GSCoreDataController.h"
 
 @implementation DataManager
 
@@ -17,6 +18,48 @@
         managerInstance = [self new];
     });
     return managerInstance;
+}
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        [[QBChat instance] setDelegate:self];
+    }
+    return self;
+}
+
+
+#pragma mark -
+#pragma mark Setter/Getter
+
+- (void)setCurrentUser:(QBUUser *)currentUser {
+    _currentUser = currentUser;
+    
+    if (currentUser) {
+        [self.currentUser setPassword:[[BaseService sharedService] token]];
+        [[QBChat instance] loginWithUser:self.currentUser];
+    }
+}
+
+- (void)loadRooms {
+    [[QBChat instance] requestAllRooms];
+}
+
+#pragma mark -
+#pragma mark QBChatDelegate
+
+- (void)chatDidLogin {
+    [self loadRooms];
+}
+
+- (void)chatDidReceiveListOfRooms:(NSArray *)rooms {
+    self.rooms = rooms;
+
+    [rooms enumerateObjectsUsingBlock:^(QBChatRoom *room, NSUInteger idx, BOOL *stop) {
+        NSManagedObject *roomObject = [GSCoreDataController createEntityWithName:@"Room"];
+        [roomObject setValue:[NSDate date] forKey:@"date"];
+        [roomObject setValue:room.name forKey:@"name"];
+    }];
 }
 
 @end

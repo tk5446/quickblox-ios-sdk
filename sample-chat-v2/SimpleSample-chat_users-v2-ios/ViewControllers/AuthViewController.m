@@ -57,8 +57,13 @@
 #pragma mark QBActionStatusDelegate
 
 - (void)completedWithResult:(Result *)result {
-    if([result isKindOfClass:[QBAAuthSessionCreationResult class]]){
-        [[DataManager manager] setIsAuth:YES];
+    if ([result isKindOfClass:[QBAAuthSessionCreationResult class]]) { // result for create session with user
+        QBAAuthSessionCreationResult *authSessionCreationResult = (QBAAuthSessionCreationResult *)result;
+        [QBUsers userWithID:authSessionCreationResult.session.userID delegate:self]; // request self user
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else if ([result isKindOfClass:[QBUUserResult class]]) { // result for request self user
+        QBUUserResult *userResult = (QBUUserResult *)result;
+        [[DataManager manager] setCurrentUser:userResult.user];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

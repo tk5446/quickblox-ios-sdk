@@ -41,7 +41,7 @@
 }
 
 - (void)checkAuth {
-    if (![[DataManager manager] isAuth]) {
+    if (![[DataManager manager] currentUser]) {
         [self performSegueWithIdentifier:@"showAuth" sender:nil];
     }
 }
