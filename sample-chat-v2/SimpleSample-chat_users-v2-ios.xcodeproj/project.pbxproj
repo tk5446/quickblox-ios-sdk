@@ -13,8 +13,6 @@
 		92742F8E1715FB9C00F70706 /* RoomListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F8D1715FB9C00F70706 /* RoomListViewController.m */; };
 		92742F911715FBAE00F70706 /* ContactListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F901715FBAE00F70706 /* ContactListViewController.m */; };
 		92742F941715FC4500F70706 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92742F921715FC4500F70706 /* DataModel.xcdatamodeld */; };
-		92742F9A1715FC7200F70706 /* GSCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F971715FC7200F70706 /* GSCoreDataController.m */; };
-		92742F9B1715FC7200F70706 /* GSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92742F991715FC7200F70706 /* GSFileManager.m */; };
 		92B532C7170E04E2003D7FD1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B532C6170E04E2003D7FD1 /* UIKit.framework */; };
 		92B532C9170E04E2003D7FD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B532C8170E04E2003D7FD1 /* Foundation.framework */; };
 		92B532CB170E04E2003D7FD1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B532CA170E04E2003D7FD1 /* CoreGraphics.framework */; };
@@ -43,6 +41,8 @@
 		92B53322170E0F87003D7FD1 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B53321170E0F87003D7FD1 /* libresolv.dylib */; };
 		92B53324170E0F91003D7FD1 /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B53323170E0F91003D7FD1 /* libxml2.2.dylib */; };
 		92B53327170E1FD2003D7FD1 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92B53326170E1FD2003D7FD1 /* ProfileViewController.m */; };
+		92FAC4931754A3BF00F2260A /* GSCoreDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FAC48F1754A3BF00F2260A /* GSCoreDataController.m */; };
+		92FAC4941754A3BF00F2260A /* GSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FAC4911754A3BF00F2260A /* GSFileManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,10 +57,6 @@
 		92742F8F1715FBAE00F70706 /* ContactListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactListViewController.h; sourceTree = "<group>"; };
 		92742F901715FBAE00F70706 /* ContactListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactListViewController.m; sourceTree = "<group>"; };
 		92742F931715FC4500F70706 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		92742F961715FC7200F70706 /* GSCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCoreDataController.h; sourceTree = "<group>"; };
-		92742F971715FC7200F70706 /* GSCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCoreDataController.m; sourceTree = "<group>"; };
-		92742F981715FC7200F70706 /* GSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSFileManager.h; sourceTree = "<group>"; };
-		92742F991715FC7200F70706 /* GSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSFileManager.m; sourceTree = "<group>"; };
 		92B532C3170E04E2003D7FD1 /* SimpleSample-chat_users-v2-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SimpleSample-chat_users-v2-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92B532C6170E04E2003D7FD1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		92B532C8170E04E2003D7FD1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +93,10 @@
 		92B53323170E0F91003D7FD1 /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = usr/lib/libxml2.2.dylib; sourceTree = SDKROOT; };
 		92B53325170E1FD2003D7FD1 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		92B53326170E1FD2003D7FD1 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		92FAC48E1754A3BF00F2260A /* GSCoreDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSCoreDataController.h; sourceTree = "<group>"; };
+		92FAC48F1754A3BF00F2260A /* GSCoreDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSCoreDataController.m; sourceTree = "<group>"; };
+		92FAC4901754A3BF00F2260A /* GSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSFileManager.h; sourceTree = "<group>"; };
+		92FAC4911754A3BF00F2260A /* GSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSFileManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,18 +127,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		92742F951715FC7200F70706 /* CoreDataController */ = {
-			isa = PBXGroup;
-			children = (
-				92742F961715FC7200F70706 /* GSCoreDataController.h */,
-				92742F971715FC7200F70706 /* GSCoreDataController.m */,
-				92742F981715FC7200F70706 /* GSFileManager.h */,
-				92742F991715FC7200F70706 /* GSFileManager.m */,
-			);
-			name = CoreDataController;
-			path = ../../../demoCoreDataController/CoreDataController;
-			sourceTree = "<group>";
-		};
 		92B532BA170E04E2003D7FD1 = {
 			isa = PBXGroup;
 			children = (
@@ -186,9 +174,9 @@
 				92B532D5170E04E2003D7FD1 /* AppDelegate.h */,
 				92B532D6170E04E2003D7FD1 /* AppDelegate.m */,
 				92B532DE170E04E2003D7FD1 /* MainStoryboard.storyboard */,
+				92FAC48C1754A3BF00F2260A /* CoreDataController */,
 				92B53304170E0CC0003D7FD1 /* DataManager.h */,
 				92B53305170E0CC0003D7FD1 /* DataManager.m */,
-				92742F951715FC7200F70706 /* CoreDataController */,
 				92742F921715FC4500F70706 /* DataModel.xcdatamodeld */,
 				921F8CB117161A1F00F1CB12 /* Room.h */,
 				921F8CB217161A1F00F1CB12 /* Room.m */,
@@ -231,6 +219,17 @@
 				92B53326170E1FD2003D7FD1 /* ProfileViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		92FAC48C1754A3BF00F2260A /* CoreDataController */ = {
+			isa = PBXGroup;
+			children = (
+				92FAC48E1754A3BF00F2260A /* GSCoreDataController.h */,
+				92FAC48F1754A3BF00F2260A /* GSCoreDataController.m */,
+				92FAC4901754A3BF00F2260A /* GSFileManager.h */,
+				92FAC4911754A3BF00F2260A /* GSFileManager.m */,
+			);
+			path = CoreDataController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,10 +308,10 @@
 				92742F8E1715FB9C00F70706 /* RoomListViewController.m in Sources */,
 				92742F911715FBAE00F70706 /* ContactListViewController.m in Sources */,
 				92742F941715FC4500F70706 /* DataModel.xcdatamodeld in Sources */,
-				92742F9A1715FC7200F70706 /* GSCoreDataController.m in Sources */,
-				92742F9B1715FC7200F70706 /* GSFileManager.m in Sources */,
 				921F8CB317161A1F00F1CB12 /* Room.m in Sources */,
 				921F8CB617161B1400F1CB12 /* Room+Ext.m in Sources */,
+				92FAC4931754A3BF00F2260A /* GSCoreDataController.m in Sources */,
+				92FAC4941754A3BF00F2260A /* GSFileManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
