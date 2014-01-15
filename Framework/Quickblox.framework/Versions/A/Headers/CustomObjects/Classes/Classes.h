@@ -6,6 +6,7 @@
 //  Copyright (c) 2012 QuickBlox. All rights reserved.
 //
 
-#import "Business/Business.h"
 #import "Definitions/Definitions.h"
+#import "Business/Business.h"
 #import "Net/Net.h"
+#import "Utils/QBCOUtils.h"

@@ -9,11 +9,13 @@
 #endif
 
 #define withContext YES
-#define withAdditionalRequest NO
+#define withAdditionalRequest YES
 #define testContext @"testContext"
 
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <Quickblox/Quickblox.h>
+    #import <SystemConfiguration/SystemConfiguration.h>
+    #import <MobileCoreServices/MobileCoreServices.h>
 #endif

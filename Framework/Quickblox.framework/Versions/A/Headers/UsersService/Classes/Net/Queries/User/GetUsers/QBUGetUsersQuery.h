@@ -14,6 +14,9 @@
 @property (nonatomic, retain) NSString *ids;
 @property (nonatomic, retain) NSArray *logins;
 @property (nonatomic, retain) NSArray *emails;
+@property (nonatomic, retain) NSArray *phoneNumbers;
+@property (nonatomic, retain) NSArray *facebookIDs;
+@property (nonatomic, retain) NSArray *twitterIDs;
 
 -(id)initWithRequest:(PagedRequest *)_pagedRequest;
 

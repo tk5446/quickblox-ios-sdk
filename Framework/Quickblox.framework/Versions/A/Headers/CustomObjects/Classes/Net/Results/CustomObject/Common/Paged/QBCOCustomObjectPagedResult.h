@@ -18,4 +18,13 @@
 /** Count of objects */
 @property (nonatomic, readonly) NSUInteger count;
 
+/** Skip parameter */
+@property (nonatomic, readonly) NSUInteger skip;
+
+/** Limit parameter */
+@property (nonatomic, readonly) NSUInteger limit;
+
+/** Not found objects (!= nil in case when use multi updated objects) */
+@property (nonatomic, readonly) NSArray *notFoundObjectsIDs;
+
 @end

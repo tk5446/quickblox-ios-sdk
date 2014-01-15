@@ -7,3 +7,5 @@
 //
 
 #import "CustomObject/QBCOCustomObject.h"
+#import "Permissions/QBCOPermissions.h"
+#import "File/QBCOFile.h"

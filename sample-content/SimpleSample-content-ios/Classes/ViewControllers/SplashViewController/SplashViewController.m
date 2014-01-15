@@ -23,8 +23,8 @@
     //
     // QuickBlox session creation
     QBASessionCreationRequest *extendedAuthRequest = [[QBASessionCreationRequest alloc] init];
-    extendedAuthRequest.userLogin = @"emma";
-    extendedAuthRequest.userPassword = @"emma";
+    extendedAuthRequest.userLogin = @"injoitUser1";
+    extendedAuthRequest.userPassword = @"injoitUser1";
     
     [QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self];
     
@@ -71,7 +71,7 @@
                 
                 // send request for getting user's filelist
                 PagedRequest *pagedRequest = [[PagedRequest alloc] init];    
-                [pagedRequest setPerPage:10];
+                [pagedRequest setPerPage:20];
                 
                 [QBContent blobsWithPagedRequest:pagedRequest delegate:self];
                 

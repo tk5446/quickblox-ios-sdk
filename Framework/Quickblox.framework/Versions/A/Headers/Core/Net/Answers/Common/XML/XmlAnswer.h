@@ -19,6 +19,8 @@
 @property (nonatomic,readonly) NSString *prevElement;
 @property (nonatomic,readonly) NSString *prevPrevElement;
 @property (nonatomic,readonly) NSString *prevPrevPrevElement;
+@property (nonatomic,readonly) NSString *prevPrevPrevPrevElement;
+@property (nonatomic,readonly) NSString *prevPrevPrevPrevPrevElement;
 
 @property (nonatomic) NSStringEncoding encodeEncoding;
 @property (nonatomic) NSStringEncoding decodeEncoding;
@@ -36,6 +38,4 @@
 -(void)handleEndOfElement:(NSString*)elementName;
 -(void)handleText:(NSString*)text currentElement:(NSString*)element;
 -(void)handleData:(NSData*)data currentElement:(NSString*)element;
-+ (NSDate*)dateFromXMLString:(NSString*)string;
-+ (NSDate *)dateFromISO8601:(NSString *)str; 
 @end

@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
 
 /**
  QBChatServiceError enum defines following connection error codes:
@@ -32,10 +33,13 @@ typedef enum QBChatServiceError {
 /** QBChat delegate for callbacks */
 @property (nonatomic, retain) id<QBChatDelegate> delegate;
 
-/** Mute Video Chat */
-@property (nonatomic, assign) BOOL muteVideoChat;
+/** Contact list */
+@property (nonatomic, readonly) QBContactList *contactList;
 
-    
+/** Array of registered video chat instances */
+@property (readonly) NSMutableArray *registeredVideoChatInstances;
+
+
 #pragma mark -
 #pragma mark Base Messaging
 
@@ -77,11 +81,25 @@ typedef enum QBChatServiceError {
 - (BOOL)sendMessage:(QBChatMessage *)message;
 
 /**
- Send presence message to Chat server. Session will be closed in 90 seconds since last activity.
+ Send presence message. Session will be closed in 90 seconds since last activity.
  
  @return YES if the request was sent successfully. If not - see log.
  */
 - (BOOL)sendPresence;
+
+/**
+ Send presence message with status. Session will be closed in 90 seconds since last activity.
+ 
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)sendPresenceWithStatus:(NSString *)status;
+
+/**
+ Send direct presence message with status to user. User must be in your contact list.
+ 
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)sendDirectPresenceWithStatus:(NSString *)status toUser:(NSUInteger)userID;
 
 /**
  Get current chat user
@@ -92,12 +110,49 @@ typedef enum QBChatServiceError {
 
 
 #pragma mark -
+#pragma mark Contact list
+
+/**
+ Add user to contact list request
+ 
+ @param userID ID of user which you would like to add to contact list
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)addUserToContactListRequest:(NSUInteger)userID;
+
+/**
+ Remove user from contact list
+ 
+ @param userID ID of user which you would like to remove from contact list
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)removeUserFromContactList:(NSUInteger)userID;
+
+/**
+ Confirm add to contact list request
+ 
+ @param userID ID of user from which you would like to confirm add to contact request
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)confirmAddContactRequest:(NSUInteger)userID;
+
+/**
+ Reject add to contact list request
+ 
+ @param userID ID of user from which you would like to reject add to contact request
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)rejectAddContactRequest:(NSUInteger)userID;
+
+
+#pragma mark -
 #pragma mark Rooms
 
 /**
  Create room or join if room with this name already exist. QBChatDelegate's method 'chatRoomDidEnter:' will be called.
  If room name contains (" ") (space) character - it will be replaceed with "_" (underscore) character.
- If room name contains ("),(&),('),(/),(:),(<),(>),(@) (double quote, ampersand, single quote, forward slash, colon, less than, greater than, at-sign) characters - they will be removed.
+ If room name contains ("),(\),(&),('),(/),(:),(<),(>),(@),((),()),(:),(;)  characters - they will be removed.
+ As user room nickname we will use user ID
  
  @param name Room name
  @param isMembersOnly YES if you want to create room that users cannot enter without being on the member list. If set NO - room will be opened for all users
@@ -105,6 +160,19 @@ typedef enum QBChatServiceError {
  @return YES if the request was sent successfully. If not - see log.
  */
 - (BOOL)createOrJoinRoomWithName:(NSString *)name membersOnly:(BOOL)isMembersOnly persistent:(BOOL)isPersistent;
+
+/**
+ Create room or join if room with this name already exist. QBChatDelegate's method 'chatRoomDidEnter:' will be called.
+ If room name contains (" ") (space) character - it will be replaceed with "_" (underscore) character.
+ If room name contains ("),(\),(&),('),(/),(:),(<),(>),(@),((),()),(:),(;)  characters - they will be removed.
+ 
+ @param name Room name
+ @param nickname User nickname wich will be used in room 
+ @param isMembersOnly YES if you want to create room that users cannot enter without being on the member list. If set NO - room will be opened for all users
+ @param isPersistent YES if you want to create room that is not destroyed if the last user exits. If set NO - room will be destroyed if the last user exits.
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)createOrJoinRoomWithName:(NSString *)name nickname:(NSString *)nickname membersOnly:(BOOL)isMembersOnly persistent:(BOOL)isPersistent;
 
 /**
  Join room. QBChatDelegate's method 'chatRoomDidEnter:' will be called
@@ -138,6 +206,27 @@ typedef enum QBChatServiceError {
  @return YES if the request was sent successfully. If not - see log.
  */
 - (BOOL)sendMessage:(NSString *)message toRoom:(QBChatRoom *)room;
+
+/**
+ Send presence with parameters to room
+ 
+ @param parameters Presence parameters
+ @param room Room to send presence
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)sendPresenceWithParameters:(NSDictionary *)parameters toRoom:(QBChatRoom *)room;
+
+/**
+ Send presence with status, show, priority, custom parameters to room
+ 
+ @param status Element contains character data specifying a natural-language description of availability status 
+ @param show Element contains non-human-readable character data that specifies the particular availability status of an entity or specific resource. 
+ @param priority Element contains non-human-readable character data that specifies the priority level of the resource. The value MUST be an integer between -128 and +127.
+ @param customParameters Custom parameters
+ @param room Room to send presence
+ @return YES if the request was sent successfully. If not - see log.
+ */
+- (BOOL)sendPresenceWithStatus:(NSString *)status show:(enum QBPresenseShow)show priority:(short)priority customParameters:(NSDictionary *)customParameters toRoom:(QBChatRoom *)room;
 
 /**
  Send request for getting list of public groups. QBChatDelegate's method 'chatDidReceiveListOfRooms:' will be called
@@ -188,63 +277,36 @@ typedef enum QBChatServiceError {
  */
 - (BOOL)deleteUsers:(NSArray *)usersIDs fromRoom:(QBChatRoom *)room;
 
-/**
- Validate room name.
- If room name contains (" ") (space) character - it will be replaceed with "_" (underscore) character.
- If room name contains ("),(&),('),(/),(:),(<),(>),(@) (double quote, ampersand, single quote, forward slash, colon, less than, greater than, at-sign) characters - they will be removed.
- 
- @param roomName Name of room
- @return Valid name of room
- */
-+ (NSString *)roomNameToValidRoomName:(NSString *)roomName;
-
 
 #pragma mark -
 #pragma mark VideoChat
 
 /**
- Call user
+ Create and register new video chat instance
+
+ @return Autoreleased instance of QBVideoChat;
+ */
+- (QBVideoChat *)createAndRegisterVideoChatInstance;
+
+/**
+ Create and register new video chat instance with particular session ID
  
- @param userID ID of opponent
- @param conferenceType Type of conference. 'QBVideoChatConferenceTypeAudioAndVideo' value only available now
+ @param sessionID Video chat session ID
+ @return Autoreleased instance of QBVideoChat;
  */
--(void) callUser:(NSUInteger)userID conferenceType:(enum QBVideoChatConferenceType)conferenceType;
+- (QBVideoChat *)createAndRegisterVideoChatInstanceWithSessionID:(NSString *)sessionID;
 
 /**
- Accept call
+ Unregister video chat instance
+ 
+ @param videoChat Instance of video chat
  */
--(void) acceptCall;
-
-/**
- Reject call
- */
--(void) rejectCall;
-
-/**
- Finish call
- */
--(void) finishCall;
+- (void)unregisterVideoChatInstance:(QBVideoChat *)videoChat;
 
 
 #pragma mark -
-#pragma mark Deprecated
+#pragma mark Misc
 
-/**
- @warning *Deprecated in QB iOS SDK 1.5:* You have to use method '- (void)createOrJoinRoomWithName:(NSString *)name membersOnly:(BOOL)isMembersOnly persistent:(BOOL)isPersistent' with isMembersOnly=NO and isPersistent=NO params instead
- 
- Create public room. QBChatDelegate's method 'chatRoomDidEnter:' will be called
- 
- @param name Room name
- */
-- (BOOL)createRoomWithName:(NSString *)name __attribute__((deprecated()));
-
-/**
- @warning *Deprecated in QB iOS SDK 1.5:* You have to use method '- (void)createOrJoinRoomWithName:(NSString *)name membersOnly:(BOOL)isMembersOnly persistent:(BOOL)isPersistent' with isMembersOnly=YES and isPersistent=NO params instead
- 
- Create private room (only members). QBChatDelegate's method 'chatRoomDidEnter:' will be called
- 
- @param name Room name
- */
-- (BOOL)createPrivateRoomWithName:(NSString *)name __attribute__((deprecated()));
+- (void)sendGetIQWithXmlns:(NSString *)xmlns node:(NSString *)node;
 
 @end

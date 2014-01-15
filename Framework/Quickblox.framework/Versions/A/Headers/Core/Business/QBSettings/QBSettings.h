@@ -80,6 +80,38 @@
 
 
 #pragma mark -
+#pragma mark Hardcoded Server domains
+
+/**
+ Set server's API domain
+ 
+ @param apiDomain New server's API domain
+ */
++ (void)setServerApiDomain:(NSString *)apiDomain;
+
+/**
+ Get server's API domain
+ 
+ @return Current server's API domain
+ */
++ (NSString *)serverApiDomain;
+
+/**
+ Set server's Chat domain
+ 
+ @param apiDomain New server's Chat domain
+ */
++ (void)setServerChatDomain:(NSString *)chatDomain;
+
+/**
+ Get server's Chat domain
+ 
+ @return Current server's Chat domain
+ */
++ (NSString *)serverChatDomain;
+
+
+#pragma mark -
 #pragma mark Server zone
 
 /**
@@ -206,6 +238,24 @@
  @return YES if we use Production environment for Push Notifications
  */
 + (BOOL)isUseProductionEnvironmentForPushNotifications;
+
+
+#pragma mark -
+#pragma mark Content settings
+
+/**
+ Set Content bucked
+ 
+ @param bucket New bucket name
+ */
++ (void)setContentBucket:(NSString *)bucket;
+
+/**
+ Get Content bucked
+ 
+ @return Content current bucket
+ */
++ (NSString *)contentBucket;
 
 
 #pragma mark -

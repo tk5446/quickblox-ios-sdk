@@ -34,7 +34,7 @@
 #define xorPeerAddressKey @"xorPeerAddres"
 
 // Enable/disable auth (some TURN servers use auth, in some we can disable it)
-#define authEnable YES
+//#define authEnable YES
 
 // Enable/disable log
 #define log 1
@@ -54,20 +54,20 @@
 @property (nonatomic, retain) QBGCDAsyncSocket *tcpSocketControl;
 @property (nonatomic, retain) QBGCDAsyncSocket *tcpSocketData;
 
-@property (nonatomic, assign) id<QBTURNClientDelegate>delegate;
+@property (nonatomic, retain) id<QBTURNClientDelegate>delegate;
 
 // TURN
 //
 // over UDP
 - (void)sendAllocationRequest;
 - (void)sendPermissionRequestWithPeer:(NSData *)peer;
-- (void)sendRefreshRequest;
+- (void)sendRefreshRequestWithLifetime:(int)lifetime;
 //
 // over TCP
 - (void)sendAllocationRequestTCP;
 - (void)sendPermissionTCPRequestWithPeer:(NSData *)peer;
 - (void)sendConnectionBindRequestTCPWithConnectionID:(NSData *)connectionID;
-- (void)sendRefreshRequestTCP;
+- (void)sendRefreshRequestTCPWithLifetime:(int)lifetime;
 
 // STUN
 //
@@ -78,6 +78,9 @@
 // over TCP
 - (void)sendBindingRequestTCP;
 - (void)sendIndicationMessageTCP;
+
+// other
+- (void)setTcpSocketControl:(QBGCDAsyncSocket *)_tcpSocketControl andConnect:(BOOL)connect;
 
 @end
 
@@ -106,6 +109,7 @@ enum QBTURNResponseType{
 - (void)didReceiveData:(NSData *) data;
 - (void)didReceiveConnectionAttempt:(NSDictionary *) data;
 - (void)didReceiveConnectionBind;
-- (void)didFailWithError:(NSString *) error code:(int)errorCode;
+- (void)didFailWithError:(NSString *) error code:(NSInteger)errorCode;
 - (void)didConnectToTURNServerUsingTCP:(QBGCDAsyncSocket *)socket;
+- (void)chatTURNServerDidDisconnect;
 @end

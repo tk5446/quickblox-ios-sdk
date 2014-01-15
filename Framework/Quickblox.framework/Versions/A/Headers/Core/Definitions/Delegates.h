@@ -13,16 +13,23 @@
 
 
 @class Result;
+
 /** Protocol for asynchronous requests delegates */
 @protocol QBActionStatusDelegate
+
 @optional
 /** Called when operation has completed */
 -(void)completedWithResult:(Result*)result;
+
 /** Called when operation has completed and context was set upon starting of the operation */
 -(void)completedWithResult:(Result*)result context:(void*)contextInfo;
+
 /** Called when operation progress has changed */
 -(void)setProgress:(float)progress;
+
+/** Called when upload operation progress has changed */
 -(void)setUploadProgress:(float)progress;
+
 @end
 
 
@@ -39,9 +46,9 @@
 @end
 
 
-@class RestResponse;
+@class QBRestResponse;
 @protocol RestRequestDelegate<LoadProgressDelegate>
--(void)completedWithResponse:(RestResponse*)response;
+-(void)completedWithResponse:(QBRestResponse*)response;
 @end
 
 

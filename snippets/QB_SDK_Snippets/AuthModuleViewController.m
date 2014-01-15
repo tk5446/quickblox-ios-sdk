@@ -79,8 +79,8 @@
                 // Create session with User auth
                 case 1:{
                     QBASessionCreationRequest *extendedAuthRequest = [QBASessionCreationRequest request];
-                    extendedAuthRequest.userLogin = @"emma";
-                    extendedAuthRequest.userPassword = @"emma";
+                    extendedAuthRequest.userLogin = @"supersample-ios"; // ID: 218651
+                    extendedAuthRequest.userPassword = @"supersample-ios";
                     
                     if(withContext){
                         [QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self context:testContext];
@@ -94,7 +94,7 @@
                 case 2:{
                     QBASessionCreationRequest *extendedAuthRequest = [QBASessionCreationRequest request];
                     extendedAuthRequest.socialProvider = @"facebook";
-                    extendedAuthRequest.scope = @[@"publish_stream"];
+//                    extendedAuthRequest.scope = @[@"publish_stream"];
                     
                     if(withContext){
                         [QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self context:testContext];
@@ -107,9 +107,9 @@
                 // Create session with Social access token
                 case 3:{
                     QBASessionCreationRequest *extendedAuthRequest = [QBASessionCreationRequest request];
-                    extendedAuthRequest.socialProvider = @"twitter";
-                    extendedAuthRequest.socialProviderAccessToken = @"183566025-TxJG7zCQAVNs6WRaRIVBXPxfaIvHXRIts9lGF1Zw";
-                    extendedAuthRequest.socialProviderAccessTokenSecret = @"Hfv7UTtgLIGD89AkndSAdqloEpam16m48YSwhF6od7g";
+                    extendedAuthRequest.socialProvider = @"facebook";
+                    extendedAuthRequest.socialProviderAccessToken = @"CAAFox8fU5dUBAKg0dCytfoLHQHM3xrDPFLZBg8vdrlIhOFACbqjh3l3whr4riNrZCmhZAJFKoQrwzdXjETlgxEycGHV5yWF4BJA39KwfZAM2z1FWZAk9kLZAM11K7ZCGo0TZBZAjg3JeMip8o34OXzaRVqvcMtLzWr8z0uFRmyhr4LdNW9rGSHVfBue3P8eP7aVUNgvxqNeocl1w9ZAmyWTaxZA";
+//                    extendedAuthRequest.socialProviderAccessTokenSecret = @"Hfv7UTtgLIGD89AkndSAdqloEpam16m48YSwhF6od7g";
                     
                     if(withContext){
                         [QBAuth createSessionWithExtendedRequest:extendedAuthRequest delegate:self context:testContext];
@@ -202,6 +202,7 @@
             QBAAuthSessionCreationResult *res = (QBAAuthSessionCreationResult *)result;
             NSLog(@"QBAAuthSessionCreationResult, session=%@, \n token=%@, \n socialProviderToken=%@, \n socialProviderTokenExpiresAt=%@", res.session, res.token, res.socialProviderToken, res.socialProviderTokenExpiresAt);
             
+            
         // Destroy session result
         }else if([result isKindOfClass:QBAAuthResult.class]){
             NSLog(@"Destroy session OK");
@@ -221,5 +222,6 @@
     
     [self completedWithResult:result];
 }
+
 
 @end

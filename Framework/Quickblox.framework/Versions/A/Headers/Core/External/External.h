@@ -5,6 +5,6 @@
  *
  */
 
-#import "ASIHTTP/QBASIHTTPRequest.h"
-#import "ASIHTTP/QBASIFormDataRequest.h"
-#import "ASIHTTP/QBASIWebPageRequest/QBASIWebPageRequest.h"
+#import "AudioEngine/QBAudioIOService.h"
+#import "AFNetworking-1.x/AFNetworking/QBAFNetworking.h"
+#import "AFNetworking-1.x/QBAPIClient.h"

@@ -6,4 +6,6 @@
 //  Copyright (c) 2012 QuickBlox. All rights reserved.
 //
 
+#import "Permissions/Permissions.h"
 #import "CustomObject/CustomObjects.h"
+#import "File/File.h"
