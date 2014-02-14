@@ -114,7 +114,7 @@
             //
             [[ChatService instance] loginWithUser:[LocalStorageService shared].currentUser completionBlock:^{
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have successfully logged in"
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Logged in - Going to the GameChat"
                                                                 message:nil
                                                                delegate:nil
                                                       cancelButtonTitle:@"Ok"

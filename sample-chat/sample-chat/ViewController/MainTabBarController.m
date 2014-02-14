@@ -25,7 +25,7 @@
 }
 
 - (void)showUserIsNotLoggedInAlert{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You have to be logged in in order to start chat"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"Login or register to start Warriors GameChat"
                                                    delegate:self
                                           cancelButtonTitle:@"Ok" otherButtonTitles: @"Login", @"Register",  nil];
     [alert show];

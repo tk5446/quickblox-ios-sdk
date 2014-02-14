@@ -16,9 +16,9 @@
 {
     // Set QuickBlox credentials (You must create application in admin.quickblox.com)
     //
-    [QBSettings setApplicationID:92];
-    [QBSettings setAuthorizationKey:@"wJHdOcQSxXQGWx5"];
-    [QBSettings setAuthorizationSecret:@"BTFsj7Rtt27DAmT"];
+    [QBSettings setApplicationID:7207];
+    [QBSettings setAuthorizationKey:@"XdMPLdrwsE7NAMQ"];
+    [QBSettings setAuthorizationSecret:@"zJhXJAUGZMRQPEm"];
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     tabBarController.delegate = self;
@@ -59,14 +59,15 @@
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UINavigationController *)viewController
 {
+    NSLog(@"AppDelegate.m tabBarController inside");
     // check if user is logged in
     if([viewController.topViewController isKindOfClass:[ChatRoomsViewController class]] &&
        [LocalStorageService shared].currentUser == nil) {
-        
+        NSLog(@"AppDelegate.m shouldSelectViewController  INSIDE IF STATEMENT -- RETURNING NO");
         [((MainTabBarController *)self.window.rootViewController) showUserIsNotLoggedInAlert];
         return NO;
     }
-
+    NSLog(@"AppDelegate.m shouldSelectViewController RETURNING YES");
     return YES;
 }
 

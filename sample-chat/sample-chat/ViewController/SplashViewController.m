@@ -54,6 +54,9 @@
                 [self dismissViewControllerAnimated:YES completion:nil];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:kUserLoggedInNotification object:nil];
+                
+                NSLog(@"***** postNotificationName called %@", kUserLoggedInNotification);
+                
             });
         }
     }

@@ -23,15 +23,23 @@
 #pragma mark
 #pragma mark ViewController lyfe cycle
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userDidLogin)
+                                                 name:kUserLoggedInNotification object:nil];
+    
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    NSLog(@"inside viewDidLoad for ChatRoomsViewControlller");
     [self.activityIndicator startAnimating];
-    
+    NSLog(@"inside viewDidLoad for ChatRoomsViewControlller after startAnimating");
     // Retieve Chat rooms
     [[ChatService instance] requestRoomsWithCompletionBlock:^(NSArray *rooms) {
+        NSLog(@"ChatRoomsViewControlller requestRoomsWithCompletionBlock inside");
         self.chatRooms = [rooms mutableCopy];
         
         [self.chatRoomsTableView reloadData];
@@ -40,9 +48,13 @@
     }];
 }
 
+- (void)userDidLogin{
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    NSLog(@"ChatRoomsViewControlller viewWillAppear inside");
     [self.chatRoomsTableView reloadData];
 }
 
@@ -51,7 +63,7 @@
 #pragma mark Actions
 
 - (IBAction)createRoom:(id)sender{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enter a new room name" message:nil
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Make a name" message:nil
                                                    delegate:self
                                           cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -64,6 +76,7 @@
 #pragma mark Storyboard
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSLog(@"ChatRoomsViewControlller prepareForSegue inside");
     ChatViewController *destinationViewController = (ChatViewController *)segue.destinationViewController;
     
     QBChatRoom *chatRoom;
